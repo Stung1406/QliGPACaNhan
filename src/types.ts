@@ -1,4 +1,4 @@
-export type GradeLetter = 'A+' | 'A' | 'B+' | 'B' | 'C+' | 'C' | 'D+' | 'D' | 'F';
+export type GradeLetter = 'A' | 'B' | 'C' | 'D' | 'F';
 
 export type SubjectCategory = 'daicuong' | 'coso' | 'chuyennganh' | 'tuchon' | 'thuctap_khoaluan' | 'khac';
 

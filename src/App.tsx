@@ -163,7 +163,7 @@ export default function App() {
         : `Đã thêm môn "${savedSubject.name}" (${savedSubject.credits} TC)`
     );
 
-    if (savedSubject.scoreLetter === 'A+' || savedSubject.score4 === 4.0) {
+    if (savedSubject.scoreLetter === 'A' || savedSubject.score4 === 4.0) {
       triggerConfetti();
     }
   };

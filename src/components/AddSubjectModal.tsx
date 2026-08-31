@@ -25,7 +25,7 @@ export const AddSubjectModal: React.FC<AddSubjectModalProps> = ({
   const [credits, setCredits] = useState<number>(3);
   const [score10, setScore10] = useState<string>('8.5');
   const [scoreLetter, setScoreLetter] = useState<GradeLetter>('A');
-  const [score4, setScore4] = useState<number>(3.8);
+  const [score4, setScore4] = useState<number>(4.0);
   const [category, setCategory] = useState<SubjectCategory>('chuyennganh');
   const [note, setNote] = useState('');
   const [autoConvert, setAutoConvert] = useState(true);
@@ -37,7 +37,7 @@ export const AddSubjectModal: React.FC<AddSubjectModalProps> = ({
       setCredits(initialData.credits || 3);
       setScore10(initialData.score10 !== undefined ? String(initialData.score10) : '8.5');
       setScoreLetter(initialData.scoreLetter || 'A');
-      setScore4(initialData.score4 !== undefined ? initialData.score4 : 3.8);
+      setScore4(initialData.score4 !== undefined ? initialData.score4 : 4.0);
       setCategory(initialData.category || 'chuyennganh');
       setNote(initialData.note || '');
     } else {
@@ -46,7 +46,7 @@ export const AddSubjectModal: React.FC<AddSubjectModalProps> = ({
       setCredits(3);
       setScore10('8.5');
       setScoreLetter('A');
-      setScore4(3.8);
+      setScore4(4.0);
       setCategory('chuyennganh');
       setNote('');
     }
@@ -229,7 +229,7 @@ export const AddSubjectModal: React.FC<AddSubjectModalProps> = ({
                   onChange={(e) => handleLetterChange(e.target.value as GradeLetter)}
                   className="w-full bg-[#161B22] border border-white/20 rounded-xl px-2 py-2 text-center text-base font-mono font-black text-[#5EEAD4] focus:outline-none focus:border-[#5EEAD4]"
                 >
-                  {['A+', 'A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'].map((lg) => (
+                  {['A', 'B', 'C', 'D', 'F'].map((lg) => (
                     <option key={lg} value={lg} className="bg-[#12161E]">
                       {lg}
                     </option>

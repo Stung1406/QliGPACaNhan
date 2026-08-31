@@ -7,14 +7,10 @@ export const GRADE_CONVERSION_TABLE: {
   score4: number;
   labelVi: string;
 }[] = [
-  { min10: 9.0, max10: 10.0, letter: 'A+', score4: 4.0, labelVi: 'Xuất sắc' },
-  { min10: 8.5, max10: 8.99, letter: 'A', score4: 3.8, labelVi: 'Giỏi' },
-  { min10: 8.0, max10: 8.49, letter: 'B+', score4: 3.5, labelVi: 'Khá giỏi' },
-  { min10: 7.0, max10: 7.99, letter: 'B', score4: 3.0, labelVi: 'Khá' },
-  { min10: 6.5, max10: 6.99, letter: 'C+', score4: 2.5, labelVi: 'Trung bình khá' },
-  { min10: 5.5, max10: 6.49, letter: 'C', score4: 2.0, labelVi: 'Trung bình' },
-  { min10: 5.0, max10: 5.49, letter: 'D+', score4: 1.5, labelVi: 'Trung bình yếu' },
-  { min10: 4.0, max10: 4.99, letter: 'D', score4: 1.0, labelVi: 'Yếu (Đạt)' },
+  { min10: 8.5, max10: 10.0, letter: 'A', score4: 4.0, labelVi: 'Giỏi / Xuất sắc' },
+  { min10: 7.0, max10: 8.49, letter: 'B', score4: 3.0, labelVi: 'Khá' },
+  { min10: 5.5, max10: 6.99, letter: 'C', score4: 2.0, labelVi: 'Trung bình' },
+  { min10: 4.0, max10: 5.49, letter: 'D', score4: 1.0, labelVi: 'Trung bình yếu (Đạt)' },
   { min10: 0.0, max10: 3.99, letter: 'F', score4: 0.0, labelVi: 'Kém (Học lại)' },
 ];
 
@@ -131,13 +127,9 @@ export function calculateOverallStats(semesters: Semester[]): OverallStats {
   let totalSubjects = 0;
 
   const gradeDistribution: Record<GradeLetter, number> = {
-    'A+': 0,
     'A': 0,
-    'B+': 0,
     'B': 0,
-    'C+': 0,
     'C': 0,
-    'D+': 0,
     'D': 0,
     'F': 0,
   };

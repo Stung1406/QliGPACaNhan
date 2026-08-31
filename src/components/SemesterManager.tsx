@@ -84,10 +84,11 @@ export const SemesterManager: React.FC<SemesterManagerProps> = ({
       }
       // Grade filter
       if (gradeFilter !== 'all') {
-        if (gradeFilter === 'high' && !(sub.scoreLetter === 'A+' || sub.scoreLetter === 'A')) return false;
-        if (gradeFilter === 'mid' && !(sub.scoreLetter === 'B+' || sub.scoreLetter === 'B')) return false;
-        if (gradeFilter === 'low' && !(sub.scoreLetter === 'C+' || sub.scoreLetter === 'C' || sub.scoreLetter === 'D+' || sub.scoreLetter === 'D')) return false;
-        if (gradeFilter === 'failed' && sub.scoreLetter !== 'F') return false;
+        if (gradeFilter === 'A' && sub.scoreLetter !== 'A') return false;
+        if (gradeFilter === 'B' && sub.scoreLetter !== 'B') return false;
+        if (gradeFilter === 'C' && sub.scoreLetter !== 'C') return false;
+        if (gradeFilter === 'D' && sub.scoreLetter !== 'D') return false;
+        if (gradeFilter === 'F' && sub.scoreLetter !== 'F') return false;
       }
       return true;
     });
@@ -187,10 +188,11 @@ export const SemesterManager: React.FC<SemesterManagerProps> = ({
               className="bg-[#0A0B0E] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-[#5EEAD4]"
             >
               <option value="all">Tất cả mức điểm</option>
-              <option value="high">Điểm Giỏi/Xuất sắc (A/A+)</option>
-              <option value="mid">Điểm Khá (B/B+)</option>
-              <option value="low">Điểm Trung bình (C/D)</option>
-              <option value="failed">Điểm Liệt / Học lại (F)</option>
+              <option value="A">Điểm A (4.0 - Giỏi)</option>
+              <option value="B">Điểm B (3.0 - Khá)</option>
+              <option value="C">Điểm C (2.0 - TB)</option>
+              <option value="D">Điểm D (1.0 - Yếu)</option>
+              <option value="F">Điểm F (0.0 - Học lại)</option>
             </select>
 
             {/* Batch Collapse */}
@@ -387,10 +389,14 @@ export const SemesterManager: React.FC<SemesterManagerProps> = ({
                                 <td className="py-3.5 text-center">
                                   <span
                                     className={`px-2.5 py-1 rounded-lg text-xs font-mono font-black ${
-                                      subject.scoreLetter === 'A+' || subject.scoreLetter === 'A'
+                                      subject.scoreLetter === 'A'
                                         ? 'bg-[#5EEAD4]/20 text-[#5EEAD4] border border-[#5EEAD4]/40'
-                                        : subject.scoreLetter === 'B+' || subject.scoreLetter === 'B'
+                                        : subject.scoreLetter === 'B'
                                         ? 'bg-blue-500/20 text-blue-300 border border-blue-500/40'
+                                        : subject.scoreLetter === 'C'
+                                        ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
+                                        : subject.scoreLetter === 'D'
+                                        ? 'bg-orange-500/20 text-orange-300 border border-orange-500/40'
                                         : subject.scoreLetter === 'F'
                                         ? 'bg-red-500/20 text-red-400 border border-red-500/40'
                                         : 'bg-white/10 text-white/80'
